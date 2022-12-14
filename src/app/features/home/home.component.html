@@ -1,0 +1,12 @@
+<main>
+  <header style="height: 200px; color: black">
+    <p>BENVENUTO</p>
+  </header>
+  <div>
+    <button (click)="login()">LOGIN</button>
+    <button (click)="logout()">LOGOUT</button>
+  </div>
+  <div *ngIf="isUserLoggedIn">
+    <button (click)="getHello()">FAI LA GET</button>
+  </div>
+</main>
