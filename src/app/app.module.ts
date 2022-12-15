@@ -21,7 +21,9 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1
     MsalModule.forRoot( new PublicClientApplication(
       {
         auth: {
-          clientId: '2a8d2897-cbe8-40b1-82c7-d114b37e14ea',
+          clientId: '710babd1-ca29-4e0d-a070-32e41d627ee5',
+          authority: 'https://login.microsoftonline.com/fe74d98f-5ec3-4998-8af9-03bb9de60851',
+          redirectUri:'http://localhost:4200',
           postLogoutRedirectUri: '',
         },
         cache: {
@@ -38,7 +40,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1
       {
         interactionType: InteractionType.Popup,
         protectedResourceMap: new Map([
-          ["https://graph.microsoft.com/v1.0/me", ["User.Read"]]
+          ["https://graph.microsoft.com/v1.0/me", ["User.Read"]],
+          ["localhost",["api://6f9d2a39-de64-4604-bf98-617c17677168/File.Read"]]
         ]),
       }
     ),
