@@ -41,7 +41,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1
         interactionType: InteractionType.Popup,
         protectedResourceMap: new Map([
           ["https://graph.microsoft.com/v1.0/me", ["User.Read"]],
-          ["localhost",["api://6f9d2a39-de64-4604-bf98-617c17677168/File.Read"]]
+          ["localhost",["api://6f9d2a39-de64-4604-bf98-617c17677168/File.Read"]],
+          ["localhost",["api://6f9d2a39-de64-4604-bf98-617c17677168/File.Write"]]
         ]),
       }
     ),

@@ -11,7 +11,6 @@ import {JavaAPIDemoServiceService} from "../../core/services/java-apidemo-servic
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  isUserLoggedIn: boolean = false;
   private readonly _destroying$ = new Subject<void>();
 
   constructor(private broadcastService: MsalBroadcastService,
@@ -28,29 +27,15 @@ export class HomeComponent implements OnInit, OnDestroy {
         // Do something with event payload here
         console.log(result);
       });
-  }
-
-  login() {
-    if(!this.isUserLoggedIn) {
-      this.authService.loginPopup(
-        {
-          scopes: ['user.read'],
-        }
-      );
-      this.isUserLoggedIn=this.authService.instance.getAllAccounts().length>0;
-    } else {
-      //
-    }
+    this.javaApiDemoService.getInfo().subscribe(result => console.log(result))
   }
 
   logout() {
-    if (this.isUserLoggedIn) {
       this.authService.logoutPopup({
           mainWindowRedirectUri: "/"
         //DA IMPLEMENTARE
         }
       );
-    }
   }
 
   getHello() {
@@ -58,6 +43,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 
+  getHome() {
+    this.javaApiDemoService.getHome().subscribe(next => console.log(next)
+    );
+  }
   ngOnDestroy(): void {
     this._destroying$.next(undefined);
     this._destroying$.complete();
